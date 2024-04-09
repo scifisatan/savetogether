@@ -1,5 +1,5 @@
 import { CardContent, Card } from "@/components/ui/card"
-
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { TableBody, Table } from "@/components/ui/table"
 import { CardTitle, CardHeader } from "@/components/ui/card"
 import Transaction from "./Transaction"
@@ -12,10 +12,19 @@ export default function TransactionBody({ title }: { title: string }) {
       <CardContent>
         <Table>
           <TableBody>
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
+            <ScrollArea className="h-48">
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+                <Transaction/>
+            </ScrollArea>
           </TableBody>
         </Table>
       </CardContent>
