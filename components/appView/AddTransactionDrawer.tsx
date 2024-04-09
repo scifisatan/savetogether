@@ -14,10 +14,9 @@ import {
 } from "@/components/ui/drawer"
 
 export default function AddTransactionDrawer() {
-    const [goal, setGoal] = React.useState(350)
 
     function onClick(adjustment: number) {
-        setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+
     }
 
     return (
@@ -33,30 +32,30 @@ export default function AddTransactionDrawer() {
                     </DrawerHeader>
                     <div className="p-4 pb-0">
                         <div className="flex items-center justify-center space-x-2">
-                            <Button
+                            <Button asChild
                                 variant="outline"
                                 size="icon"
                                 className="h-8 w-8 shrink-0 rounded-full"
                                 onClick={() => onClick(-10)}
-                                disabled={goal <= 200}
+
                             >
 
                                 <span className="sr-only">Decrease</span>
                             </Button>
                             <div className="flex-1 text-center">
                                 <div className="text-7xl font-bold tracking-tighter">
-                                    {goal}
+
                                 </div>
                                 <div className="text-[0.70rem] uppercase text-muted-foreground">
                                     Calories/day
                                 </div>
                             </div>
-                            <Button
+                            <Button asChild
                                 variant="outline"
                                 size="icon"
                                 className="h-8 w-8 shrink-0 rounded-full"
                                 onClick={() => onClick(10)}
-                                disabled={goal >= 400}
+
                             >
 
                                 <span className="sr-only">Increase</span>

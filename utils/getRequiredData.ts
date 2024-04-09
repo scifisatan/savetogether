@@ -1,15 +1,12 @@
-import { mockExpenseList, mockSavingList, totalSaving } from "./mockdata"
 
+import { mockList, totalSavings } from "./mockdata"
+
+const getTransactions = () => {
+    return mockList
+}
 const getTotalSaving = () => {
-    return totalSaving
+    return totalSavings
 }
 
-const getSavings = () => {
-    return mockSavingList
-}
 
-const getExpenses = () => {
-    return mockExpenseList
-}
-
-export { getTotalSaving, getExpenses, getSavings }
+export { getTotalSaving, getTransactions}
