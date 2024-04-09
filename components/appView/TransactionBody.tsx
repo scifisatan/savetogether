@@ -12,7 +12,7 @@ export default function TransactionBody({ title }: { title: string }) {
       <CardContent>
         <Table>
           <TableBody>
-            <Transaction title = {title}/>
+            <Transaction />
             <Transaction />
             <Transaction />
             <Transaction />
