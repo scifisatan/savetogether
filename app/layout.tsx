@@ -26,7 +26,7 @@ export default function RootLayout({
         fontSans.variable
       )}>
         <div className="flex bg-lime-200 ">
-          <div className="mx-auto h-screen lg:w-1/3 md:w-1/2 w-full bg-lime-50">
+          <div className="mx-auto h-screen lg:w-1/4 md:w-1/2 w-full bg-lime-50">
             {children}
           </div>
         </div>
