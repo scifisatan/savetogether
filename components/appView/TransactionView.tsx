@@ -1,21 +1,17 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-
-import TransactionBody from './TransactionBody'
-import { getTransactions } from "@/utils/getRequiredData"
-
+import TransactionBody from "./TransactionBody";
+import { getTransactions } from "@/utils/getRequiredData";
 
 export default function TransactionList() {
-
   const transactionList = getTransactions();
-  const expensesList = transactionList.filter((transaction) => transaction.type == "Expense");
-  const savingsList = transactionList.filter((transaction) => transaction.type == "Saving");
-  
+  const expensesList = transactionList.filter(
+    (transaction) => transaction.type == "Expense"
+  );
+  const savingsList = transactionList.filter(
+    (transaction) => transaction.type == "Saving"
+  );
+
   return (
     <Tabs defaultValue="Savings" className="w-5/6 mx-auto h-max">
       <TabsList className="grid w-full grid-cols-2">
@@ -29,5 +25,5 @@ export default function TransactionList() {
         <TransactionBody title="Expenses" data={expensesList} />
       </TabsContent>
     </Tabs>
-  )
+  );
 }

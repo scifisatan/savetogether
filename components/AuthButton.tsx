@@ -17,7 +17,7 @@ export default async function AuthButton() {
     return redirect("/login");
   };
 
-  const name = user?.email?.split('@')[0]
+  const name = user?.email?.split("@")[0];
 
   return user ? (
     <div className="flex items-center gap-4">

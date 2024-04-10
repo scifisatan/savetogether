@@ -45,8 +45,8 @@ export default function Login({
     });
 
     if (error) {
-      let errormsg = error.message
-      return redirect("/login?message=" + { errormsg })
+      let errormsg = error.message;
+      return redirect("/login?message=" + { errormsg });
     }
 
     return redirect("/login?message=Check email to continue sign in process");
