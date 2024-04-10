@@ -31,7 +31,8 @@ const FormSchema = z.object({
         required_error: "Title is required",
         invalid_type_error: "Title must be string",
     }),
-    amount: z.number().gt(0, { message: "this👏is👏too👏big" }),
+    amount: z.preprocess((a) => parseInt(z.string().parse(a), 10),
+        z.number().gt(0, 'Must be greater than 0')),
     date: z.string(),
 });
 

@@ -8,7 +8,7 @@ const Transaction = (props: { key: number, data: TransactionRecord }) => {
             <TableRow>
                 <TableCell>
                     <div className="font-medium">{props.data.title}</div>
-                    <div className="hidden text-sm text-muted-foreground md:inline">{props.data.date}</div>
+                    <div className="text-sm text-muted-foreground">{props.data.date}</div>
                 </TableCell>
                 <TableCell className="text-right ">${props.data.amount}</TableCell>
             </TableRow>
