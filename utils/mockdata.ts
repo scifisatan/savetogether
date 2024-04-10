@@ -2,7 +2,7 @@
 export type totalSaving = number
 
 export type TransactionRecord = {
-    "type": "saving" | "expense"
+    "type": "Saving" | "Expense"
     "title": string,
     "amount": number
     "date": string
@@ -12,31 +12,31 @@ export type TransactionList = TransactionRecord[]
 
 export const mockList: TransactionList = [
     {
-        "type": "saving",
+        "type": "Saving",
         "title": "Salary",
         "amount": 1000,
         "date": "2022-01-01"
     },
     {
-        "type": "saving",
+        "type": "Saving",
         "title": "Salary",
         "amount": 1000,
         "date": "2022-01-01"
     },
     {
-        "type": "expense",
+        "type": "Expense",
         "title": "Rent",
         "amount": 500,
         "date": "2022-01-01"
     },
     {
-        "type": "expense",
+        "type": "Expense",
         "title": "Rent",
         "amount": 500,
         "date": "2022-01-01"
     },
     {
-        "type": "saving",
+        "type": "Saving",
         "title": "Salary",
         "amount": 1000,
         "date": "2022-01-01"

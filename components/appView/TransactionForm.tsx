@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 
+import { postNewTransaction } from "@/utils/getRequiredData"
+
 import {
     SelectValue,
     SelectTrigger,
@@ -38,19 +40,22 @@ const FormSchema = z.object({
 
 export default function InputForm(props: { setIsOpen: Function }) {
     let todayDate = new Date().toISOString().slice(0, 10).split('/').reverse().join('-')
+    let todayDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
-            type: "Saving",
-            title: "",
-            amount: 10,
+            title: todayDay,
             date: todayDate,
         },
     });
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-        console.log(data)
+        postNewTransaction(data)
+        toast({
+            title: "Transaction has been added 😊",
+            duration: 1000
+        })
         props.setIsOpen(false)
     }
 
@@ -60,23 +65,26 @@ export default function InputForm(props: { setIsOpen: Function }) {
                 <FormField
                     control={form.control}
                     name="type"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel className="flex justify-start">Type</FormLabel>
-                            <FormControl>
-                                <Select>
-                                    <SelectTrigger id="type">
-                                        <SelectValue placeholder="Select"  {...field} />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="expense">Expense</SelectItem>
-                                        <SelectItem value="savings">Savings</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
+                    render={({ field }) => {
+
+                        return (
+                            <FormItem>
+                                <FormLabel className="flex justify-start">Type</FormLabel>
+                                <FormControl>
+                                    <Select onValueChange={field.onChange} value={field.value}>
+                                        <SelectTrigger id="type">
+                                            <SelectValue placeholder="Select the type"></SelectValue>
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="Expense">Expense</SelectItem>
+                                            <SelectItem value="Saving">Saving</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        );
+                    }}
                 />
                 <FormField
                     control={form.control}
@@ -86,7 +94,7 @@ export default function InputForm(props: { setIsOpen: Function }) {
                             <FormLabel className="flex justify-start">Title</FormLabel>
                             <FormControl>
                                 <div className="space-y-2">
-                                    <Input id="title" placeholder="Enter title" {...field} />
+                                    <Input id="title" placeholder="Enter title" required {...field} />
                                 </div>
                             </FormControl>
                             <FormMessage />
@@ -104,6 +112,7 @@ export default function InputForm(props: { setIsOpen: Function }) {
                                     id="amount"
                                     placeholder="Enter amount"
                                     type="number"
+                                    required
                                     {...field}
                                 />
                             </FormControl>
@@ -130,7 +139,7 @@ export default function InputForm(props: { setIsOpen: Function }) {
                         </FormItem>
                     )}
                 />
-                <Button className="w-full" type="submit">
+                <Button className="w-full my-2" type="submit">
                     Submit
                 </Button>
             </form>

@@ -23,14 +23,10 @@ export default function Page() {
                 <div className="mx-auto w-full max-w-sm">
                     <DrawerHeader>
                         <DrawerTitle>How much did you save today?</DrawerTitle>
-
                     </DrawerHeader>
-                    <div className="p-4">
-
-                        <TransactionForm setIsOpen = {setIsOpen}/>
-
+                    <div className="p-4 pb-6">
+                        <TransactionForm setIsOpen={setIsOpen} />
                     </div>
-                   
                 </div>
             </DrawerContent>
         </Drawer>
