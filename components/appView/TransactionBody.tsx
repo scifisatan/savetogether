@@ -16,7 +16,6 @@ export default function TransactionBody({ title, data }: { title: string, data: 
         <ScrollArea className="min-h-min max-h-48 rounded-md border">
           <Table>
             <TableBody>
-
               {
                 data.map((data, index) => (
                   <Transaction key={index} data={data} />

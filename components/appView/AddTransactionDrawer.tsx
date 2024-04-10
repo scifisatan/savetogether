@@ -1,7 +1,4 @@
 'use client'
-import * as React from "react"
-
-import { Button } from "@/components/ui/button"
 import {
     Drawer,
     DrawerClose,
@@ -12,65 +9,30 @@ import {
     DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
-
-export default function AddTransactionDrawer() {
-
-    function onClick(adjustment: number) {
-
-    }
-
+import { Button } from "../ui/button";
+import TransactionForm from "./TransactionForm"
+import { useState } from "react";
+export default function Page() {
+    const [isOpen, setIsOpen] = useState(false)
     return (
-        <Drawer>
-            <DrawerTrigger>
-                <Button variant="outline">Open Drawer</Button>
+        <Drawer open={isOpen} onOpenChange={setIsOpen}>
+            <DrawerTrigger asChild>
+                <Button variant="outline">Add Transaction</Button>
             </DrawerTrigger>
             <DrawerContent>
                 <div className="mx-auto w-full max-w-sm">
                     <DrawerHeader>
-                        <DrawerTitle>Move Goal</DrawerTitle>
-                        <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                        <DrawerTitle>How much did you save today?</DrawerTitle>
+
                     </DrawerHeader>
-                    <div className="p-4 pb-0">
-                        <div className="flex items-center justify-center space-x-2">
-                            <Button asChild
-                                variant="outline"
-                                size="icon"
-                                className="h-8 w-8 shrink-0 rounded-full"
-                                onClick={() => onClick(-10)}
+                    <div className="p-4">
 
-                            >
-
-                                <span className="sr-only">Decrease</span>
-                            </Button>
-                            <div className="flex-1 text-center">
-                                <div className="text-7xl font-bold tracking-tighter">
-
-                                </div>
-                                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                                    Calories/day
-                                </div>
-                            </div>
-                            <Button asChild
-                                variant="outline"
-                                size="icon"
-                                className="h-8 w-8 shrink-0 rounded-full"
-                                onClick={() => onClick(10)}
-
-                            >
-
-                                <span className="sr-only">Increase</span>
-                            </Button>
-                        </div>
+                        <TransactionForm setIsOpen = {setIsOpen}/>
 
                     </div>
-                    <DrawerFooter>
-                        <Button>Submit</Button>
-                        <DrawerClose asChild>
-                            <Button variant="outline">Cancel</Button>
-                        </DrawerClose>
-                    </DrawerFooter>
+                   
                 </div>
             </DrawerContent>
         </Drawer>
-    )
+    );
 }
