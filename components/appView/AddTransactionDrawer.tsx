@@ -16,9 +16,16 @@ export default function Page() {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
-            <DrawerTrigger asChild>
-                <Button variant="outline">Add Transaction</Button>
-            </DrawerTrigger>
+            <div className="flex">
+                <div className="mx-auto my-3">
+
+                    <DrawerTrigger className="w-full" asChild>
+
+                        <Button className="text-black" variant="outline">Add Transaction</Button>
+
+                    </DrawerTrigger>
+                </div>
+            </div>
             <DrawerContent>
                 <div className="mx-auto w-full max-w-sm">
                     <DrawerHeader>
