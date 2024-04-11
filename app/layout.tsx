@@ -11,6 +11,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
+  manifest: "/manifest.json",
   title: "Save Together",
   description: "Helps you save money together",
 };
