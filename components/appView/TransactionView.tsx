@@ -1,13 +1,21 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import TransactionBody from "./TransactionBody";
 import { getTransactions } from "@/utils/getRequiredData";
 
+import { 
+  Tabs, 
+  TabsContent, 
+  TabsList, 
+  TabsTrigger 
+} from "@/components/ui/tabs";
+
 export default function TransactionList() {
   const transactionList = getTransactions();
+
   const expensesList = transactionList.filter(
     (transaction) => transaction.type == "Expense"
   );
+  
   const savingsList = transactionList.filter(
     (transaction) => transaction.type == "Saving"
   );

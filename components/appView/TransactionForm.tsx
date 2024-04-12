@@ -1,23 +1,21 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useForm } from "react-hook-form";
-import { date, z } from "zod";
-
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { postNewTransaction } from "@/utils/getRequiredData";
+
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
-
-import { postNewTransaction } from "@/utils/getRequiredData";
 
 import {
   SelectValue,
@@ -29,14 +27,17 @@ import {
 
 const FormSchema = z.object({
   type: z.enum(["Saving", "Expense"]),
+
   title: z.string({
     required_error: "Title is required",
     invalid_type_error: "Title must be string",
   }),
+
   amount: z.preprocess(
     (a) => parseInt(z.string().parse(a), 10),
     z.number().gt(0, "Must be greater than 0")
   ),
+
   date: z.string(),
 });
 
@@ -47,6 +48,7 @@ export default function InputForm(props: { setIsOpen: Function }) {
     .split("/")
     .reverse()
     .join("-");
+
   let todayDay = new Date().toLocaleDateString("en-US", { weekday: "long" });
 
   const form = useForm<z.infer<typeof FormSchema>>({

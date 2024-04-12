@@ -1,6 +1,7 @@
+/** @type {import('next').NextConfig} */
+
 import withPWA from 'next-pwa';
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {};
 const withPWAConfig = withPWA({
     dest: 'public',
@@ -9,4 +10,6 @@ const withPWAConfig = withPWA({
     disable: false,
 });
 
-export default withPWAConfig(nextConfig)
+// export default withPWAConfig(nextConfig)
+//enable pwa if prod if else disable
+export default process.env.NODE_ENV === 'production' ? withPWAConfig(nextConfig) : nextConfig;

@@ -1,9 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google";
-
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
+import { Inter as FontSans } from "next/font/google";
 
 const fontSans = FontSans({
   subsets: ["latin"],

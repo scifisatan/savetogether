@@ -1,8 +1,13 @@
 import React from "react";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 import { getTotalSaving } from "@/utils/getRequiredData";
+
+import { 
+  Card, 
+  CardContent, 
+  CardHeader, 
+  CardTitle 
+} from "@/components/ui/card";
+
 
 export default async function AmountCard() {
   const totalSaving = getTotalSaving();

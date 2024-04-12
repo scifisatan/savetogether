@@ -19,7 +19,6 @@ export default async function ProtectedPage() {
       <nav className="w-full flex border-b border-b-foreground/10 justify-end px-3 py-2 text-sm ">
         <AuthButton />
       </nav>
-
       <AppRoot />
     </div>
   );
