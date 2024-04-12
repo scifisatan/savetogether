@@ -6,15 +6,14 @@ import { TransactionRecord, mockList, totalSavings } from "./mockdata"
 const supabase = createClient()
 const getTransactions = async () => {
 
-    let { data, error } = await supabase
+    let { data } = await supabase
         .from('Transaction')
         .select('*')
 
-    console.log(data, error)
     return data
 }
 const getTotalSaving = async () => {
-    let { data, error } = await supabase.from('Transaction').select('*')
+    let { data } = await supabase.from('Transaction').select('*')
 
     let total = 0
     data?.forEach((transaction: TransactionRecord) => {
@@ -25,7 +24,7 @@ const getTotalSaving = async () => {
 
 const postNewTransaction = async (data: TransactionRecord) => {
     let { error } = await supabase.from('Transaction').insert(data)
-    console.log(error)
+
     return error
 }
 export { getTotalSaving, getTransactions, postNewTransaction }
