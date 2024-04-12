@@ -5,7 +5,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { TableBody, Table } from "@/components/ui/table";
 import { CardTitle, CardHeader } from "@/components/ui/card";
 
-
 export default function TransactionBody({
   title,
   data,
@@ -19,7 +18,7 @@ export default function TransactionBody({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="min-h-min max-h-48 rounded-md border">
+        <ScrollArea className="h-48 rounded-md border">
           <Table>
             <TableBody>
               {data.map((data, index) => (

@@ -1,14 +1,31 @@
+'use server'
 
+import { createClient } from '@/utils/supabase/server';
 import { TransactionRecord, mockList, totalSavings } from "./mockdata"
 
-const getTransactions = () => {
-    return mockList
+const supabase = createClient()
+const getTransactions = async () => {
+
+    let { data, error } = await supabase
+        .from('Transaction')
+        .select('*')
+
+    console.log(data, error)
+    return data
 }
-const getTotalSaving = () => {
-    return totalSavings
+const getTotalSaving = async () => {
+    let { data, error } = await supabase.from('Transaction').select('*')
+
+    let total = 0
+    data?.forEach((transaction: TransactionRecord) => {
+        transaction.type === 'Saving' ? total += transaction.amount : total -= transaction.amount
+    })
+    return total
 }
 
-const postNewTransaction = (data: TransactionRecord) => {
-    console.log(data)
+const postNewTransaction = async (data: TransactionRecord) => {
+    let { error } = await supabase.from('Transaction').insert(data)
+    console.log(error)
+    return error
 }
 export { getTotalSaving, getTransactions, postNewTransaction }

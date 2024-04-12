@@ -10,7 +10,7 @@ import {
 
 
 export default async function AmountCard() {
-  const totalSaving = getTotalSaving();
+  const totalSaving = await getTotalSaving();
 
   return (
     <Card className="w-5/6 mx-auto my-4 p-1">

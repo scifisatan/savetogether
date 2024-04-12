@@ -63,8 +63,9 @@ export default function InputForm(props: { setIsOpen: Function }) {
     postNewTransaction(data);
     toast({
       title: "Transaction has been added 😊",
-      duration: 1250,
+      duration: 1500,
     });
+    window.location.reload();
     props.setIsOpen(false);
   }
 
