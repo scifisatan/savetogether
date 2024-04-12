@@ -1,10 +1,10 @@
+import Transaction from "./Transaction";
+import { TransactionList } from "@/utils/mockdata";
 import { CardContent, Card } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { TableBody, Table } from "@/components/ui/table";
 import { CardTitle, CardHeader } from "@/components/ui/card";
-import Transaction from "./Transaction";
 
-import { TransactionList } from "@/utils/mockdata";
 
 export default function TransactionBody({
   title,
