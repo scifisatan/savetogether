@@ -2,8 +2,11 @@ import TransactionBody from "./TransactionBody";
 import { getTransactions } from "@/utils/getRequiredData";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  TransactionList,
+} from "@/utils/mockdata";
 
-export default async function TransactionList() {
+export default async function TransactionView() {
   const transactionList = await getTransactions();
 
   const expensesList = transactionList?.filter(
@@ -21,10 +24,16 @@ export default async function TransactionList() {
         <TabsTrigger value="Expenses">Expenses</TabsTrigger>
       </TabsList>
       <TabsContent value="Savings">
-        <TransactionBody title="Savings" data={savingsList} />
+        <TransactionBody
+          title="Savings"
+          data={savingsList as TransactionList}
+        />
       </TabsContent>
       <TabsContent value="Expenses">
-        <TransactionBody title="Expenses" data={expensesList} />
+        <TransactionBody
+          title="Expenses"
+          data={expensesList as TransactionList}
+        />
       </TabsContent>
     </Tabs>
   );
