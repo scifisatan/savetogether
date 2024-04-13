@@ -1,6 +1,6 @@
-'use server'
+"use server";
 
-import { createClient } from '@/utils/supabase/server';
+import createClient from '@/utils/supabase/client';
 import { TransactionRecord, mockList, totalSavings } from "./mockdata"
 
 const supabase = createClient()

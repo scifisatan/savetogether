@@ -59,8 +59,9 @@ export default function InputForm(props: { setIsOpen: Function }) {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    postNewTransaction(data);
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    
+    await postNewTransaction(data);
     toast({
       title: "Transaction has been added 😊",
       duration: 1500,

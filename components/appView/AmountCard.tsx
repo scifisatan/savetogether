@@ -1,15 +1,10 @@
 import React from "react";
 import { getTotalSaving } from "@/utils/getRequiredData";
 
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
-
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function AmountCard() {
+  "use server";
   const totalSaving = await getTotalSaving();
 
   return (
