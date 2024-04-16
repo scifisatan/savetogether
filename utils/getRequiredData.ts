@@ -1,4 +1,4 @@
-"use server";
+
 
 import createClient from '@/utils/supabase/client';
 import { TransactionRecord, mockList, totalSavings } from "./mockdata"

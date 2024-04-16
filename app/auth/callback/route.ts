@@ -14,6 +14,7 @@ export async function GET(request: Request) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  // URL to redirect to after sign up process completes
+  // // URL to redirect to after sign up process completes
+  console.log("GET /auth/callback");
   return NextResponse.redirect(`${origin}/`);
 }
