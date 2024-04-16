@@ -3,6 +3,8 @@ import AppRoot from "@/components/appView/AppRoot";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProtectedPage() {
   const supabase = createClient();
 
