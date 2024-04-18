@@ -1,14 +1,25 @@
 
 
 import createClient from '@/utils/supabase/client';
-import { TransactionRecord, mockList, totalSavings } from "./mockdata"
+import { TransactionRecord, totalSavings } from "./mockdata"
+import { number } from 'zod';
 
 const supabase = createClient()
+
+const getUserID = async () => {
+    let user = await supabase.auth.getUser()
+    let id = user?.data.user?.id
+    let intID = Number(id)
+    console.log(intID)
+    return intID
+}
+
 const getTransactions = async () => {
 
     let { data } = await supabase
         .from('Transaction')
         .select('*')
+    // .eq('id', await getUserID())
 
     return data
 }
@@ -23,7 +34,10 @@ const getTotalSaving = async () => {
 }
 
 const postNewTransaction = async (data: TransactionRecord) => {
-    let { error } = await supabase.from('Transaction').insert(data)
+    console.log(data)
+    let newData = { ...data, id: await getUserID() }
+    console.log(newData)
+    let { error } = await supabase.from('Transaction').insert(newData)
 
     return error
 }
