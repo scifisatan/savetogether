@@ -1,5 +1,5 @@
 import React from "react";
-import { getTotalSaving } from "@/utils/getRequiredData";
+import { getTotalSaving } from "@/utils/serverSideSupabase";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

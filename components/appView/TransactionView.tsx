@@ -1,11 +1,10 @@
 import TransactionBody from "./TransactionBody";
-import { getTransactions } from "@/utils/getRequiredData";
+import { getTransactions } from "@/utils/serverSideSupabase";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TransactionList } from "@/utils/mockdata";
 
 export default async function TransactionView() {
-  "use server";
   const transactionList = await getTransactions();
 
   const expensesList = transactionList?.filter(

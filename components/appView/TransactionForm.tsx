@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { postNewTransaction } from "@/utils/getRequiredData";
+import { postNewTransaction } from "@/utils/clientSideSupabase";
 
 import {
   Form,
@@ -60,7 +60,6 @@ export default function InputForm(props: { setIsOpen: Function }) {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    
     await postNewTransaction(data);
     toast({
       title: "Transaction has been added 😊",

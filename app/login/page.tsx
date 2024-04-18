@@ -4,6 +4,9 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 1;
+
 export default function Login({
   searchParams,
 }: {

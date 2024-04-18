@@ -7,7 +7,7 @@ export type TransactionRecord = {
     "title": string,
     "amount": number
     "date": string
-    "id" : number
+    "id": UUID
 }
 
 export type TransactionList = TransactionRecord[]
