@@ -1,4 +1,4 @@
-
+'use server'
 import { createClient } from './supabase/server';
 import { TransactionRecord } from "./mockdata";
 
@@ -10,7 +10,7 @@ const getTransactions = async () => {
         .from('Transaction')
         .select('*')
         .eq('user', userID)
-  
+
     return data
 }
 const getTotalSaving = async () => {

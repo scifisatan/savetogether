@@ -13,4 +13,3 @@ export type TransactionRecord = {
 export type TransactionList = TransactionRecord[]
 
 
-export const totalSavings: totalSaving = 3000
