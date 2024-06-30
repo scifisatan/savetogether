@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 1;
 
 export default async function ProtectedPage() {
   const supabase = createClient();

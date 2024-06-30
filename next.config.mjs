@@ -5,9 +5,22 @@ import withPWA from 'next-pwa';
 const nextConfig = {};
 const withPWAConfig = withPWA({
   dest: 'public',
-  cacheOnFrontEndNav: true,
+  cacheOnFrontEndNav: false,
   reloadOnOnline: true,
-  disable: false
+  disable: false,
+  runtimeCaching: [
+    {
+      urlPattern: /^\/page/,
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'page',
+        expiration: {
+          maxEntries: 10,
+          maxAgeSeconds: 24 * 60 * 60, // 1 day
+        },
+      },
+    },
+  ],
 });
 
 // export default withPWAConfig(nextConfig)
